@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Counter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family:'Courier New', Courier, monospace;
+            color: #ffffff; /* White text color */
+            background-image: url('click.png'); /* Background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            background-color: rgb(0, 0, 0); /* Slightly transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative; /* Needed for positioning the back button */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1, p, .cta-button, .plants-counter {
+            font-weight: bold; /* Make text bolder */
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: large;
+            margin-top: 50px;
+        }
+
+        #counter {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .plants-counter {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #43da4b; /* Button color */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: bolder;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            /* Gradient background */
+            background-image: linear-gradient(45deg, #43da4b, #3bbf4c);
+            /* Box shadow */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #44db4c; /* Darker button color on hover */
+            /* Add hover effect */
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #000000bd; /* Button color */
+            color: #ffffff;
+            border: none;
+            border-radius: 10cm;
+            width: 100px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #0000007e; /* Darker button color on hover */
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Click the Button</h1>
+    <h2><b>100 CLICKS = 1 PLANT</b></h3>
+    <h3>Click the button below to increase the counter.</h3>
+    <p id="counter">0</p>
+    <button id="clickButton" class="cta-button">Click Me</button>
+    <p class="plants-counter">You've planted <span id="plantsCount">0</span> plants</p>
+    <button onclick="window.location.href = 'trees.html';" class="back-button">back</button>
+</div>
+
+<script>
+    // Get the button element, the counter element, and the plants counter element
+    var button = document.getElementById('clickButton');
+    var counter = document.getElementById('counter');
+    var plantsCounter = document.getElementById('plantsCount');
+    var lastClickTime = Date.now();
+
+    // Initialize count and plants count
+    var count = 0;
+    var plantsCount = 0;
+
+    // Update the counter and plants counter when the button is clicked
+    button.addEventListener('click', function() {
+        var currentTime = Date.now();
+        // Check if the time difference between the last two clicks is reasonable
+        if (currentTime - lastClickTime < 100) {
+            alert("Suspicious clicking detected. Please click more slowly.");
+            return;
+        }
+        count++;
+        counter.textContent = count;
+        lastClickTime = currentTime;
+
+        // Check if count is a multiple of 100
+        if (count % 100 === 0) {
+            plantsCount++;
+            plantsCounter.textContent = plantsCount;
+            // Display message
+            var message = "Congratulations! You've planted " + plantsCount + " plants";
+            alert(message);
+        }
+    });
+</script>
+
+</body>
+</html>

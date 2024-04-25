@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tree Project</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family:'Courier New', Courier, monospace;
+            color: #ffffff; /* White text color */
+            background-image: url('tree-background.png'); /* Background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+        }
+
+        p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #43da4b; /* Button color */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            font-weight: bolder;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            /* Gradient background */
+            background-image: linear-gradient(45deg, #43da4b, #3bbf4c);
+            /* Box shadow */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #44db4b; /* Darker button color on hover */
+            /* Add hover effect */
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to 8-A's EcoClick</h1>
+    <p>Join us in making a positive impact on the environment by planting trees!</p>
+    <a href="counter.html" class="cta-button">Plant a Tree</a>
+</div>
+
+</body>
+</html>
