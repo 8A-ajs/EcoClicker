@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            font-family:'Courier New', Courier, monospace;
+            font-family: 'Courier New', Courier, monospace;
             color: #ffffff; /* White text color */
             background-image: url('click.png'); /* Background image */
             background-size: cover; /* Cover the entire viewport */
@@ -87,19 +87,22 @@
             top: 20px;
             right: 20px;
             background-color: #000000bd; /* Button color */
-            color: #ffffff;
+            color: #ffffff98;
             border: none;
-            border-radius: 10cm;
-            width: 100px;
-            height: 40px;
+            border-radius: 20px;
+            padding: 10px 20px;
             font-size: 1.2rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            text-decoration: none;
+
         }
 
         .back-button:hover {
             background-color: #0000007e; /* Darker button color on hover */
             transform: translateY(-1px);
+            color: #ffffff;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -112,7 +115,7 @@
     <p id="counter">0</p>
     <button id="clickButton" class="cta-button">Click Me</button>
     <p class="plants-counter">You've planted <span id="plantsCount">0</span> plants</p>
-    <button onclick="window.location.href = 'trees.html';" class="back-button">back</button>
+    <a href="index.html" class="back-button">back</a>
 </div>
 
 <script>
@@ -130,7 +133,7 @@
     button.addEventListener('click', function() {
         var currentTime = Date.now();
         // Check if the time difference between the last two clicks is reasonable
-        if (currentTime - lastClickTime < 100) {
+        if (currentTime - lastClickTime < 75) {
             alert("Suspicious clicking detected. Please click more slowly.");
             return;
         }
